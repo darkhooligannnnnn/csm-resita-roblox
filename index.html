@@ -8,6 +8,7 @@ HTML
     <style>
         :root {
             --red: #e60000;
+            --fire-orange: #ff3700;
             --black: #111111;
             --dark-gray: #1a1a1a;
             --light-gray: #f4f4f4;
@@ -47,26 +48,28 @@ HTML
             letter-spacing: 0.5px;
         }
 
-        /* HERO CU IMAGINEA DE PODIUM */
+        /* HERO CU IMAGINEA TA DE PE GOOGLE CORECTATĂ */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('podium.jpg') no-repeat center center/cover; 
-            height: 410px; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiOzYjj5ukZI5SbnR9pcbu8HLfqkiChQjsH3_g4HQ46uEH6wFHugo4Fjk&s=10') no-repeat center center/cover; 
+            height: 380px; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             color: var(--white); 
             text-align: center; 
-            padding: 0 20px; 
+            padding: 0 20px;
+            overflow: hidden;
+            border-bottom: 6px solid var(--red);
         }
-        .hero h1 { font-size: 38px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-        .hero p { font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--red); text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .hero h1 { font-size: 44px; text-transform: uppercase; margin-bottom: 10px; font-weight: 900; letter-spacing: 2px; text-shadow: 3px 3px 6px rgba(0,0,0,0.9); color: var(--white); }
+        .hero p { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.9); }
         
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         @media (max-width: 768px) { 
             .container { grid-template-columns: 1fr; } 
             nav ul { display: none; } 
-            .hero h1 { font-size: 28px; }
+            .hero h1 { font-size: 30px; }
             .trophy-cabinet { gap: 8px; padding: 10px; }
             .trophy-item { font-size: 11px; padding: 4px 10px; width: 100%; text-align: center; }
         }
@@ -76,19 +79,21 @@ HTML
         .news-tag { background: var(--red); color: var(--white); font-size: 12px; font-weight: bold; padding: 3px 8px; text-transform: uppercase; display: inline-block; margin-bottom: 10px; }
         .news-title { font-size: 20px; margin-bottom: 10px; color: var(--black); }
         
-        /* ZONĂ SCROLL PENTRU ETAPE */
+        /* ZONĂ FIXĂ DE SCROLL PENTRU MECIURI ȘI ETAPE */
         .table-scroll-container {
-            max-height: 250px;
+            max-height: 280px;
             overflow-y: auto;
-            border: 1px solid #eee;
+            border: 1px solid #ddd;
             border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
         .stages-table { width: 100%; border-collapse: collapse; }
-        .stages-table th { position: sticky; top: 0; background-color: var(--dark-gray); color: white; text-transform: uppercase; font-size: 12px; z-index: 10; }
-        .stages-table th, .stages-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-        .stages-table tr:hover { background-color: #f9f9f9; }
-        .status-win { color: #2e7d32; font-weight: bold; }
-        .status-next { color: #777; font-style: italic; }
+        .stages-table th { position: sticky; top: 0; background-color: var(--dark-gray); color: white; text-transform: uppercase; font-size: 12px; z-index: 10; padding: 12px; }
+        .stages-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+        .stages-table tr:hover { background-color: #fcfcfc; }
+        .status-win { color: #2e7d32; font-weight: bold; background: rgba(46, 125, 50, 0.1); padding: 4px 8px; border-radius: 3px; display: inline-block; }
+        .status-champ { color: #b39700; font-weight: bold; background: rgba(255, 215, 0, 0.15); padding: 4px 8px; border-radius: 3px; display: inline-block; }
+        .status-next { color: #666; font-style: italic; }
 
         /* JUCĂTORI */
         .player-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px; }
@@ -101,15 +106,15 @@ HTML
         .player-name { font-weight: 600; font-size: 16px; margin: 2px 0; }
         .player-pos { font-size: 12px; color: #aaa; text-transform: uppercase; }
         
-        .match-widget { background: var(--black); color: var(--white); padding: 20px; border-radius: 5px; text-align: center; }
+        .match-widget { background: var(--black); color: var(--white); padding: 20px; border-radius: 5px; text-align: center; border: 1px solid #222; }
         .match-team { font-weight: bold; font-size: 18px; margin: 10px 0; }
-        .match-score { font-size: 28px; font-weight: bold; color: var(--red); margin: 5px 0; }
+        .match-score { font-size: 32px; font-weight: bold; color: var(--red); margin: 5px 0; letter-spacing: 2px; }
         footer { background: var(--black); color: #aaa; text-align: center; padding: 20px; border-top: 4px solid var(--red); margin-top: 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <!-- VITRINA DE TROFEE RECONSTRUITĂ -->
+    <!-- VITRINA DE TROFEE GALBENĂ -->
     <div class="trophy-cabinet">
         <div class="trophy-item">🏆 Cupa României RUL S1</div>
         <div class="trophy-item">🥇 Titlul RUL S1</div>
@@ -129,6 +134,7 @@ HTML
         </nav>
     </header>
 
+    <!-- HERO ACTUALIZAT DIRECT CU LINK-UL DE IMAGINE TRIMIS DE TINE -->
     <div class="hero">
         <h1>CSM Reșița Roblox</h1>
         <p>Campionii Cupei României RSL S3</p>
@@ -155,11 +161,11 @@ HTML
                 <div class="card">
                     <span class="news-tag">Transferuri</span>
                     <h3 class="news-title">Val de achiziții: Ayan și TPL au semnat! Zvonurile continuă</h3>
-                    <p>Campania de transferuri este în plină desfășurare pentru noul sezon. Conducerea a oficializat aducerea unor piese de calibru: mijlocașul Ayan și atacantul TPL au fost prezentați oficial în tricoul rossonero. Surse din cadrul clubului afirmă că negocierile nu se opresc aici, iar noi nume mari sunt așteptate la antrenamente în zilele următoare.</p>
+                    <p>Campania de transferuri este în plină desfășurare pentru noul sezon. Conducerea a oficializat aducerea unor piese de calibru: mijlocașul Ayan și atacantul TPL au fost prezentți oficial în tricoul rossonero. Surse din cadrul clubului afirmă că negocierile nu se opresc aici, iar noi nume mari sunt așteptate la antrenamente în zilele următoare.</p>
                 </div>
             </section>
 
-            <!-- SECȚIUNEA ETAPE CU SCROLL ȘI N/A -->
+            <!-- SECȚIUNEA ETAPE -->
             <section id="etape" style="margin-bottom: 40px;">
                 <h2 class="section-title">Etapele Sezonului</h2>
                 <div class="card" style="padding: 10px;">
@@ -177,37 +183,37 @@ HTML
                                 <tr>
                                     <td><b>Etapa 1</b></td>
                                     <td>CSM Reșița vs N/A</td>
-                                    <td class="status-win">3 - 1</td>
-                                    <td class="status-win">Victorie</td>
+                                    <td><span class="status-win">3 - 1</span></td>
+                                    <td><span class="status-win">Victorie</span></td>
                                 </tr>
                                 <tr>
                                     <td><b>Etapa 2</b></td>
                                     <td>N/A vs CSM Reșița</td>
-                                    <td class="status-win">0 - 2</td>
-                                    <td class="status-win">Victorie</td>
+                                    <td><span class="status-win">0 - 2</span></td>
+                                    <td><span class="status-win">Victorie</span></td>
                                 </tr>
                                 <tr>
                                     <td><b>Finala Cupei</b></td>
                                     <td>CSM Reșița vs FCSB</td>
-                                    <td class="status-win">VS</td>
-                                    <td class="status-win">CAMPIONI</td>
+                                    <td><span class="status-champ">CONDUCEM</span></td>
+                                    <td><span class="status-champ">CAMPIONI</span></td>
                                 </tr>
                                 <tr>
                                     <td><b>Etapa 3</b></td>
                                     <td>CSM Reșița vs N/A</td>
-                                    <td>-</td>
+                                    <td class="status-next">-</td>
                                     <td class="status-next">Următorul Meci</td>
                                 </tr>
                                 <tr>
                                     <td><b>Etapa 4</b></td>
                                     <td>N/A vs CSM Reșița</td>
-                                    <td>-</td>
+                                    <td class="status-next">-</td>
                                     <td class="status-next">Planificat</td>
                                 </tr>
                                 <tr>
                                     <td><b>Etapa 5</b></td>
                                     <td>CSM Reșița vs N/A</td>
-                                    <td>-</td>
+                                    <td class="status-next">-</td>
                                     <td class="status-next">Planificat</td>
                                 </tr>
                             </tbody>
@@ -377,9 +383,9 @@ HTML
             <div class="match-widget">
                 <div style="font-size: 12px; text-transform: uppercase; color: #888;">Ultimul Meci - Finala Cupei</div>
                 <div class="match-team">CSM Reșița</div>
-                <div class="match-score">VS</div>
+                <div class="match-score">CAMPIONI</div>
                 <div class="match-team">FCSB</div>
-                <div style="font-size: 12px; color: var(--red); margin-top: 10px;">Stadion: Ion Oblemenco</div>
+                <div style="font-size: 12px; color: var(--gold); margin-top: 10px; font-weight: bold;">Stadion: Ion Oblemenco</div>
             </div>
         </aside>
     </div>
