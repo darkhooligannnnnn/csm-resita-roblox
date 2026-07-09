@@ -12,6 +12,7 @@ HTML
             --dark-gray: #1a1a1a;
             --light-gray: #f4f4f4;
             --white: #ffffff;
+            --gold: #ffd700;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--light-gray); color: #333; line-height: 1.6; }
@@ -22,25 +23,34 @@ HTML
         nav a { color: var(--white); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: color 0.3s; }
         nav a:hover { color: var(--red); }
         
-        /* VITRINA DE TROFEE SUS */
+        /* VITRINA DE TROFEE GALBENĂ */
         .trophy-cabinet {
-            background: #0a0a0a;
-            color: white;
-            padding: 10px 5%;
+            background: #111;
+            padding: 12px 5%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-bottom: 1px solid #222;
-            font-size: 13px;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--gold);
         }
-        .trophy-group { display: flex; gap: 15px; }
-        .trophy-item { display: flex; align-items: center; gap: 5px; }
-        .trophy-item.main-trophy { font-size: 15px; font-weight: bold; color: #ffd700; background: rgba(255,215,0,0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3); }
+        .trophy-item { 
+            font-size: 14px; 
+            font-weight: bold; 
+            color: #111; 
+            background: var(--gold); 
+            padding: 6px 16px; 
+            border-radius: 4px; 
+            border: 1px solid #b39700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
         /* HERO CU IMAGINEA DE PODIUM */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('podium.jpg') no-repeat center center/cover; 
-            height: 400px; 
+            height: 410px; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
@@ -57,7 +67,8 @@ HTML
             .container { grid-template-columns: 1fr; } 
             nav ul { display: none; } 
             .hero h1 { font-size: 28px; }
-            .trophy-cabinet { flex-direction: column; gap: 10px; text-align: center; }
+            .trophy-cabinet { gap: 8px; padding: 10px; }
+            .trophy-item { font-size: 11px; padding: 4px 10px; width: 100%; text-align: center; }
         }
         
         .section-title { font-size: 22px; text-transform: uppercase; border-left: 5px solid var(--red); padding-left: 10px; margin-bottom: 20px; color: var(--black); }
@@ -65,13 +76,19 @@ HTML
         .news-tag { background: var(--red); color: var(--white); font-size: 12px; font-weight: bold; padding: 3px 8px; text-transform: uppercase; display: inline-block; margin-bottom: 10px; }
         .news-title { font-size: 20px; margin-bottom: 10px; color: var(--black); }
         
-        /* TABEL ETAPE */
-        .stages-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        /* ZONĂ SCROLL PENTRU ETAPE */
+        .table-scroll-container {
+            max-height: 250px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .stages-table { width: 100%; border-collapse: collapse; }
+        .stages-table th { position: sticky; top: 0; background-color: var(--dark-gray); color: white; text-transform: uppercase; font-size: 12px; z-index: 10; }
         .stages-table th, .stages-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-        .stages-table th { background-color: var(--dark-gray); color: white; text-transform: uppercase; font-size: 12px; }
         .stages-table tr:hover { background-color: #f9f9f9; }
         .status-win { color: #2e7d32; font-weight: bold; }
-        .status-next { color: #666; font-style: italic; }
+        .status-next { color: #777; font-style: italic; }
 
         /* JUCĂTORI */
         .player-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px; }
@@ -92,16 +109,11 @@ HTML
 </head>
 <body>
 
-    <!-- VITRINA DE TROFEE TOP -->
+    <!-- VITRINA DE TROFEE RECONSTRUITĂ -->
     <div class="trophy-cabinet">
-        <div class="trophy-group">
-            <div class="trophy-item">🏆 Cupa României RUL S1</div>
-            <div class="trophy-item">🥇 Titlul RUL S1</div>
-        </div>
-        <div class="trophy-item main-trophy">
-            🏆 RSL Romanian Cup S3 CHAMPIONS
-        </div>
-        <div style="width: 150px; text-align: right; font-weight: bold; color: #aaa;">Palmares</div>
+        <div class="trophy-item">🏆 Cupa României RUL S1</div>
+        <div class="trophy-item">🥇 Titlul RUL S1</div>
+        <div class="trophy-item">🏆 RSL Romanian Cup S3</div>
     </div>
 
     <header>
@@ -147,46 +159,60 @@ HTML
                 </div>
             </section>
 
-            <!-- SECȚIUNEA ETAPE NOUĂ -->
+            <!-- SECȚIUNEA ETAPE CU SCROLL ȘI N/A -->
             <section id="etape" style="margin-bottom: 40px;">
                 <h2 class="section-title">Etapele Sezonului</h2>
-                <div class="card" style="padding: 10px; overflow-x: auto;">
-                    <table class="stages-table">
-                        <thead>
-                            <tr>
-                                <th>Etapă</th>
-                                <th>Meci</th>
-                                <th>Scor</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>Etapa 1</b></td>
-                                <td>CSM Reșița vs Adversar 1</td>
-                                <td class="status-win">3 - 1</td>
-                                <td class="status-win">Victorie</td>
-                            </tr>
-                            <tr>
-                                <td><b>Etapa 2</b></td>
-                                <td>Adversar 2 vs CSM Reșița</td>
-                                <td class="status-win">0 - 2</td>
-                                <td class="status-win">Victorie</td>
-                            </tr>
-                            <tr>
-                                <td><b>Finala Cupei</b></td>
-                                <td>CSM Reșița vs FCSB</td>
-                                <td class="status-win">VS</td>
-                                <td class="status-win">CAMPIONI</td>
-                            </tr>
-                            <tr>
-                                <td><b>Etapa 3</b></td>
-                                <td>CSM Reșița vs Adversar 3</td>
-                                <td>-</td>
-                                <td class="status-next">Următorul Meci</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card" style="padding: 10px;">
+                    <div class="table-scroll-container">
+                        <table class="stages-table">
+                            <thead>
+                                <tr>
+                                    <th>Etapă</th>
+                                    <th>Meci</th>
+                                    <th>Scor</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etapa 1</b></td>
+                                    <td>CSM Reșița vs N/A</td>
+                                    <td class="status-win">3 - 1</td>
+                                    <td class="status-win">Victorie</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etapa 2</b></td>
+                                    <td>N/A vs CSM Reșița</td>
+                                    <td class="status-win">0 - 2</td>
+                                    <td class="status-win">Victorie</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Finala Cupei</b></td>
+                                    <td>CSM Reșița vs FCSB</td>
+                                    <td class="status-win">VS</td>
+                                    <td class="status-win">CAMPIONI</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etapa 3</b></td>
+                                    <td>CSM Reșița vs N/A</td>
+                                    <td>-</td>
+                                    <td class="status-next">Următorul Meci</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etapa 4</b></td>
+                                    <td>N/A vs CSM Reșița</td>
+                                    <td>-</td>
+                                    <td class="status-next">Planificat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etapa 5</b></td>
+                                    <td>CSM Reșița vs N/A</td>
+                                    <td>-</td>
+                                    <td class="status-next">Planificat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
@@ -206,7 +232,6 @@ HTML
             <!-- SECȚIUNEA LOT -->
             <section id="lot">
                 <h2 class="section-title">Lotul de Jucători</h2>
-                
                 <div class="player-grid">
                     <div class="player-card">
                         <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
