@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -20,23 +21,69 @@
         nav ul { list-style: none; display: flex; gap: 20px; }
         nav a { color: var(--white); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: color 0.3s; }
         nav a:hover { color: var(--red); }
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #222; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--white); text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: 42px; text-transform: uppercase; margin-bottom: 10px; }
-        .hero p { font-size: 18px; color: #ccc; }
+        
+        /* VITRINA DE TROFEE SUS */
+        .trophy-cabinet {
+            background: #0a0a0a;
+            color: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+            font-size: 13px;
+        }
+        .trophy-group { display: flex; gap: 15px; }
+        .trophy-item { display: flex; align-items: center; gap: 5px; }
+        .trophy-item.main-trophy { font-size: 15px; font-weight: bold; color: #ffd700; background: rgba(255,215,0,0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,215,0,0.3); }
+
+        /* HERO CU IMAGINEA DE PODIUM */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('podium.jpg') no-repeat center center/cover; 
+            height: 400px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            color: var(--white); 
+            text-align: center; 
+            padding: 0 20px; 
+        }
+        .hero h1 { font-size: 38px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+        .hero p { font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--red); text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
-        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } nav ul { display: none; } }
+        @media (max-width: 768px) { 
+            .container { grid-template-columns: 1fr; } 
+            nav ul { display: none; } 
+            .hero h1 { font-size: 28px; }
+            .trophy-cabinet { flex-direction: column; gap: 10px; text-align: center; }
+        }
+        
         .section-title { font-size: 22px; text-transform: uppercase; border-left: 5px solid var(--red); padding-left: 10px; margin-bottom: 20px; color: var(--black); }
         .card { background: var(--white); padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .news-tag { background: var(--red); color: var(--white); font-size: 12px; font-weight: bold; padding: 3px 8px; text-transform: uppercase; display: inline-block; margin-bottom: 10px; }
         .news-title { font-size: 20px; margin-bottom: 10px; color: var(--black); }
+        
+        /* TABEL ETAPE */
+        .stages-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .stages-table th, .stages-table td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        .stages-table th { background-color: var(--dark-gray); color: white; text-transform: uppercase; font-size: 12px; }
+        .stages-table tr:hover { background-color: #f9f9f9; }
+        .status-win { color: #2e7d32; font-weight: bold; }
+        .status-next { color: #666; font-style: italic; }
+
+        /* JUCĂTORI */
         .player-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px; }
         .player-card { background: var(--white); border: 1px solid #ddd; border-radius: 5px; overflow: hidden; text-align: center; transition: transform 0.2s; }
         .player-card:hover { transform: translateY(-5px); border-color: var(--red); }
-        .player-img { background: #eee; height: 150px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #aaa; }
+        .player-img { background: #eee; height: 180px; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .player-img img { width: 100%; height: 100%; object-fit: cover; }
         .player-info { padding: 10px; background: var(--dark-gray); color: var(--white); }
         .player-number { font-size: 24px; font-weight: bold; color: var(--red); }
         .player-name { font-weight: 600; font-size: 16px; margin: 2px 0; }
         .player-pos { font-size: 12px; color: #aaa; text-transform: uppercase; }
+        
         .match-widget { background: var(--black); color: var(--white); padding: 20px; border-radius: 5px; text-align: center; }
         .match-team { font-weight: bold; font-size: 18px; margin: 10px 0; }
         .match-score { font-size: 28px; font-weight: bold; color: var(--red); margin: 5px 0; }
@@ -45,11 +92,24 @@
 </head>
 <body>
 
+    <!-- VITRINA DE TROFEE TOP -->
+    <div class="trophy-cabinet">
+        <div class="trophy-group">
+            <div class="trophy-item">🏆 Cupa României RUL S1</div>
+            <div class="trophy-item">🥇 Titlul RUL S1</div>
+        </div>
+        <div class="trophy-item main-trophy">
+            🏆 RSL Romanian Cup S3 CHAMPIONS
+        </div>
+        <div style="width: 150px; text-align: right; font-weight: bold; color: #aaa;">Palmares</div>
+    </div>
+
     <header>
         <div class="logo">CSM <span>Reșița</span></div>
         <nav>
             <ul>
                 <li><a href="#stiri">Știri</a></li>
+                <li><a href="#etape">Etape</a></li>
                 <li><a href="#staff">Staff</a></li>
                 <li><a href="#lot">Lot Jucători</a></li>
                 <li><a href="#meciuri">Meciuri</a></li>
@@ -59,11 +119,12 @@
 
     <div class="hero">
         <h1>CSM Reșița Roblox</h1>
-        <p>Pagina oficială a rossonerilor din RSL</p>
+        <p>Campionii Cupei României RSL S3</p>
     </div>
 
     <div class="container">
         <main>
+            <!-- SECȚIUNEA ȘTIRI -->
             <section id="stiri">
                 <h2 class="section-title">Noutățile Clubului</h2>
                 
@@ -84,14 +145,52 @@
                     <h3 class="news-title">Val de achiziții: Ayan și TPL au semnat! Zvonurile continuă</h3>
                     <p>Campania de transferuri este în plină desfășurare pentru noul sezon. Conducerea a oficializat aducerea unor piese de calibru: mijlocașul Ayan și atacantul TPL au fost prezentați oficial în tricoul rossonero. Surse din cadrul clubului afirmă că negocierile nu se opresc aici, iar noi nume mari sunt așteptate la antrenamente în zilele următoare.</p>
                 </div>
+            </section>
 
-                <div class="card">
-                    <span class="news-tag">Digital</span>
-                    <h3 class="news-title">Trecem pe sistemul Transfermarkt în RSL</h3>
-                    <p>Liga a implementat oficial monitorizarea digitală a jucătorilor. Fiecare rossonero va avea profil dedicat cu statistici, evoluții și istoric de transferuri. Toți membrii lotului sunt rugați să finalizeze înregistrarea conturilor.</p>
+            <!-- SECȚIUNEA ETAPE NOUĂ -->
+            <section id="etape" style="margin-bottom: 40px;">
+                <h2 class="section-title">Etapele Sezonului</h2>
+                <div class="card" style="padding: 10px; overflow-x: auto;">
+                    <table class="stages-table">
+                        <thead>
+                            <tr>
+                                <th>Etapă</th>
+                                <th>Meci</th>
+                                <th>Scor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Etapa 1</b></td>
+                                <td>CSM Reșița vs Adversar 1</td>
+                                <td class="status-win">3 - 1</td>
+                                <td class="status-win">Victorie</td>
+                            </tr>
+                            <tr>
+                                <td><b>Etapa 2</b></td>
+                                <td>Adversar 2 vs CSM Reșița</td>
+                                <td class="status-win">0 - 2</td>
+                                <td class="status-win">Victorie</td>
+                            </tr>
+                            <tr>
+                                <td><b>Finala Cupei</b></td>
+                                <td>CSM Reșița vs FCSB</td>
+                                <td class="status-win">VS</td>
+                                <td class="status-win">CAMPIONI</td>
+                            </tr>
+                            <tr>
+                                <td><b>Etapa 3</b></td>
+                                <td>CSM Reșița vs Adversar 3</td>
+                                <td>-</td>
+                                <td class="status-next">Următorul Meci</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
+            <!-- SECȚIUNEA STAFF -->
             <section id="staff">
                 <h2 class="section-title">Staff Tehnic</h2>
                 <div class="card">
@@ -104,12 +203,13 @@
                 </div>
             </section>
 
+            <!-- SECȚIUNEA LOT -->
             <section id="lot">
                 <h2 class="section-title">Lotul de Jucători</h2>
                 
                 <div class="player-grid">
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">7</div>
                             <div class="player-name">50kBuffing</div>
@@ -118,7 +218,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">8</div>
                             <div class="player-name">Dave</div>
@@ -127,7 +227,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">9</div>
                             <div class="player-name">Papacioc</div>
@@ -136,7 +236,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">10</div>
                             <div class="player-name">DarkHooligan</div>
@@ -145,7 +245,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">11</div>
                             <div class="player-name">Rby</div>
@@ -154,7 +254,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">14</div>
                             <div class="player-name">TPL</div>
@@ -163,7 +263,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">15</div>
                             <div class="player-name">Alex</div>
@@ -172,7 +272,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">17</div>
                             <div class="player-name">Kaupi</div>
@@ -181,7 +281,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">18</div>
                             <div class="player-name">Raimond</div>
@@ -190,7 +290,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">21</div>
                             <div class="player-name">Antony</div>
@@ -199,7 +299,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">50</div>
                             <div class="player-name">Ayan</div>
@@ -208,7 +308,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">71</div>
                             <div class="player-name">Misu</div>
@@ -217,7 +317,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">80</div>
                             <div class="player-name">Epic</div>
@@ -226,7 +326,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">88</div>
                             <div class="player-name">MMA</div>
@@ -235,7 +335,7 @@
                     </div>
 
                     <div class="player-card">
-                        <div class="player-img">👤</div>
+                        <div class="player-img"><img src="https://avatar-res.roblox.com/v1/avatar/placeholder.png" alt="Avatar"></div>
                         <div class="player-info">
                             <div class="player-number">98</div>
                             <div class="player-name">Danut</div>
@@ -246,6 +346,7 @@
             </section>
         </main>
 
+        <!-- WIDGET MECIURI -->
         <aside id="meciuri">
             <h2 class="section-title">Meciuri</h2>
             <div class="match-widget">
