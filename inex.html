@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSM Reșița Roblox | Site Oficial</title>
+    <style>
+        :root {
+            --red: #e60000;
+            --black: #111111;
+            --dark-gray: #1a1a1a;
+            --light-gray: #f4f4f4;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light-gray); color: #333; line-height: 1.6; }
+        header { background-color: var(--black); border-bottom: 4px solid var(--red); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: var(--white); font-weight: bold; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .logo span { color: var(--red); }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: color 0.3s; }
+        nav a:hover { color: var(--red); }
+        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #222; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--white); text-align: center; padding: 0 20px; }
+        .hero h1 { font-size: 42px; text-transform: uppercase; margin-bottom: 10px; }
+        .hero p { font-size: 18px; color: #ccc; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } nav ul { display: none; } }
+        .section-title { font-size: 22px; text-transform: uppercase; border-left: 5px solid var(--red); padding-left: 10px; margin-bottom: 20px; color: var(--black); }
+        .card { background: var(--white); padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .news-tag { background: var(--red); color: var(--white); font-size: 12px; font-weight: bold; padding: 3px 8px; text-transform: uppercase; display: inline-block; margin-bottom: 10px; }
+        .news-title { font-size: 20px; margin-bottom: 10px; color: var(--black); }
+        .player-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .player-card { background: var(--white); border: 1px solid #ddd; border-radius: 5px; overflow: hidden; text-align: center; transition: transform 0.2s; }
+        .player-card:hover { transform: translateY(-5px); border-color: var(--red); }
+        .player-img { background: #eee; height: 150px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #aaa; }
+        .player-info { padding: 10px; background: var(--dark-gray); color: var(--white); }
+        .player-number { font-size: 24px; font-weight: bold; color: var(--red); }
+        .player-name { font-weight: 600; font-size: 16px; margin: 2px 0; }
+        .player-pos { font-size: 12px; color: #aaa; text-transform: uppercase; }
+        .match-widget { background: var(--black); color: var(--white); padding: 20px; border-radius: 5px; text-align: center; }
+        .match-team { font-weight: bold; font-size: 18px; margin: 10px 0; }
+        .match-score { font-size: 28px; font-weight: bold; color: var(--red); margin: 5px 0; }
+        footer { background: var(--black); color: #aaa; text-align: center; padding: 20px; border-top: 4px solid var(--red); margin-top: 40px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CSM <span>Reșița</span></div>
+        <nav>
+            <ul>
+                <li><a href="#stiri">Știri</a></li>
+                <li><a href="#staff">Staff</a></li>
+                <li><a href="#lot">Lot Jucători</a></li>
+                <li><a href="#meciuri">Meciuri</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>CSM Reșița Roblox</h1>
+        <p>Pagina oficială a rossonerilor din RSL</p>
+    </div>
+
+    <div class="container">
+        <main>
+            <section id="stiri">
+                <h2 class="section-title">Noutățile Clubului</h2>
+                
+                <div class="card">
+                    <span class="news-tag">Trofeu</span>
+                    <h3 class="news-title">Cupa României este la Reșița!</h3>
+                    <p>Istoria s-a scris pe serverele RSL! CSM Reșița aduce Cupa României în vitrina clubului după o finală electrizantă. Băieții au demonstrat un caracter incredibil pe teren, dominând faza defensivă și taxând fiecare greșeală a adversarilor. Trofeul rămâne acasă la rossoneri!</p>
+                </div>
+
+                <div class="card">
+                    <span class="news-tag">MVP Match</span>
+                    <h3 class="news-title">50kBuffing, meci extraordinar în marea finală!</h3>
+                    <p>Mijlocașul nostru de bandă, 50kBuffing, a fost de neoprit în ultimul act al competiției. Cu un efort fizic remarcabil, curse constante în flanc și un control perfect al ritmului pe tranziție, acesta a destabilizat complet defensiva adversă, fiind numit omul meciului de către fani și staff.</p>
+                </div>
+
+                <div class="card">
+                    <span class="news-tag">Transferuri</span>
+                    <h3 class="news-title">Val de achiziții: Ayan și TPL au semnat! Zvonurile continuă</h3>
+                    <p>Campania de transferuri este în plină desfășurare pentru noul sezon. Conducerea a oficializat aducerea unor piese de calibru: mijlocașul Ayan și atacantul TPL au fost prezentați oficial în tricoul rossonero. Surse din cadrul clubului afirmă că negocierile nu se opresc aici, iar noi nume mari sunt așteptate la antrenamente în zilele următoare.</p>
+                </div>
+
+                <div class="card">
+                    <span class="news-tag">Digital</span>
+                    <h3 class="news-title">Trecem pe sistemul Transfermarkt în RSL</h3>
+                    <p>Liga a implementat oficial monitorizarea digitală a jucătorilor. Fiecare rossonero va avea profil dedicat cu statistici, evoluții și istoric de transferuri. Toți membrii lotului sunt rugați să finalizeze înregistrarea conturilor.</p>
+                </div>
+            </section>
+
+            <section id="staff">
+                <h2 class="section-title">Staff Tehnic</h2>
+                <div class="card">
+                    <p><strong>Manager General:</strong> Deniz</p>
+                    <p><strong>Co-Owner / Administrator:</strong> Vlady</p>
+                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                    <p><strong>Președinte:</strong> DarkHooligan</p>
+                    <p><strong>Antrenor Principal:</strong> DarkHooligan</p>
+                    <p><strong>Antrenori Secunzi:</strong> George, Danut</p>
+                    <p><strong>Preparator Fizic:</strong> MMA</p>
+                </div>
+            </section>
+
+            <section id="lot">
+                <h2 class="section-title">Lotul de Jucători</h2>
+                
+                <div class="player-grid">
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">7</div>
+                            <div class="player-name">50kBuffing</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">8</div>
+                            <div class="player-name">Dave</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">9</div>
+                            <div class="player-name">Papacioc</div>
+                            <div class="player-pos">Atacant</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">10</div>
+                            <div class="player-name">DarkHooligan</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">11</div>
+                            <div class="player-name">Rby</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">14</div>
+                            <div class="player-name">TPL</div>
+                            <div class="player-pos">Atacant</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">15</div>
+                            <div class="player-name">Alex</div>
+                            <div class="player-pos">Portar</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">17</div>
+                            <div class="player-name">Kaupi</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">18</div>
+                            <div class="player-name">Raimond</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">21</div>
+                            <div class="player-name">Antony</div>
+                            <div class="player-pos">Atacant</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">50</div>
+                            <div class="player-name">Ayan</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">71</div>
+                            <div class="player-name">Misu</div>
+                            <div class="player-pos">Portar</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">80</div>
+                            <div class="player-name">Epic</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">88</div>
+                            <div class="player-name">MMA</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+
+                    <div class="player-card">
+                        <div class="player-img">👤</div>
+                        <div class="player-info">
+                            <div class="player-number">98</div>
+                            <div class="player-name">Danut</div>
+                            <div class="player-pos">Mijlocaș</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside id="meciuri">
+            <h2 class="section-title">Meciuri</h2>
+            <div class="match-widget">
+                <div style="font-size: 12px; text-transform: uppercase; color: #888;">Ultimul Meci - Finala Cupei</div>
+                <div class="match-team">CSM Reșița</div>
+                <div class="match-score">VS</div>
+                <div class="match-team">FCSB</div>
+                <div style="font-size: 12px; color: var(--red); margin-top: 10px;">Stadion: Ion Oblemenco</div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CSM Reșița Roblox. Toate drepturile rezervate Rossoneri.</p>
+    </footer>
+
+</body>
+</html>
